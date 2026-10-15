@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Leaflet CSS (Интерактивті карта үшін) -->
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <style>
@@ -45,13 +45,12 @@
       line-height: 1.65;
     }
 
-    /* ТИПОГРАФИКА */
     h1, h2, h3, .serif-title {
       font-family: 'Cormorant Garamond', Georgia, serif;
       letter-spacing: 0.03em;
     }
 
-    /* ЖОҒАРҒЫ НАВИГАЦИЯ ЖӘНЕ ПРОГРЕСС-БАР */
+    /* ПРОГРЕСС-БАР ЖӘНЕ НАВИГАЦИЯ */
     .progress-bar {
       position: fixed;
       top: 0;
@@ -71,9 +70,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(10, 9, 8, 0.85);
+      background: rgba(10, 9, 8, 0.88);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
       z-index: 1000;
     }
 
@@ -181,16 +180,16 @@
       box-shadow: 0 14px 32px rgba(212, 175, 55, 0.55);
     }
 
-    /* КОНТЕЙНЕР ЖӘНЕ БӨЛІМ ТАҚЫРЫПТАРЫ */
+    /* СЕКЦИЯЛАР */
     .section-container {
-      max-width: 1140px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 90px 20px;
+      padding: 85px 20px;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 70px;
+      margin-bottom: 45px;
     }
 
     .section-header span {
@@ -207,152 +206,25 @@
       color: #FFF;
     }
 
-    /* 2. TIMELINE СТИЛІ */
-    .timeline-wrapper {
-      position: relative;
-      padding: 20px 0;
+    /* 2. KNIGHT LAB TIMELINE КОНТЕЙНЕРІ */
+    .knightlab-frame-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 175, 55, 0.12);
+      overflow: hidden;
     }
 
-    .timeline-wrapper::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--gold) 0%, rgba(212,175,55,0.2) 100%);
-    }
-
-    .timeline-item {
-      position: relative;
+    .knightlab-frame-wrapper iframe {
+      display: block;
       width: 100%;
-      margin-bottom: 70px;
-      display: flex;
-      justify-content: flex-start;
-      opacity: 0;
-      transform: translateY(45px);
-      transition: all 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .timeline-item:nth-child(even) {
-      justify-content: flex-end;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: 50%;
-      top: 28px;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 20px;
-      background: var(--bg-oil);
-      border: 4px solid var(--gold);
-      border-radius: 50%;
-      z-index: 3;
-      box-shadow: 0 0 18px rgba(212, 175, 55, 0.8);
-    }
-
-    .timeline-card {
-      width: 45%;
-      background: linear-gradient(145deg, var(--bg-card) 0%, #120D09 100%);
-      border: 1px solid var(--border-gold);
-      border-radius: 8px;
-      padding: 32px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-      position: relative;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-
-    .timeline-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-    }
-
-    .card-date {
-      display: inline-block;
-      background: rgba(212, 175, 55, 0.14);
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 1.5px;
-      padding: 5px 12px;
-      border-radius: 4px;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-    }
-
-    .timeline-card h3 {
-      font-size: 1.75rem;
-      color: #FFF;
-      margin-bottom: 16px;
-      line-height: 1.25;
-    }
-
-    .card-media {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
+      height: 650px;
+      border: none;
       border-radius: 6px;
-      margin-bottom: 18px;
-      border: 1px solid rgba(255,255,255,0.1);
-      filter: sepia(22%) contrast(108%);
     }
 
-    /* БЕЙДЖДЕР: ТАРИХИ ДЕРЕК ЖӘНЕ ФИЛЬМДЕГІ ОҚИҒА */
-    .badge-block {
-      padding: 14px 16px;
-      border-radius: 6px;
-      margin-bottom: 14px;
-      font-size: 0.92rem;
-    }
-
-    .badge-history {
-      background: rgba(194, 178, 128, 0.08);
-      border-left: 3px solid var(--sand);
-    }
-
-    .badge-film {
-      background: rgba(212, 175, 55, 0.08);
-      border-left: 3px solid var(--gold);
-    }
-
-    .badge-label {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 6px;
-    }
-
-    .badge-history .badge-label {
-      color: var(--sand);
-    }
-
-    .badge-film .badge-label {
-      color: var(--gold);
-    }
-
-    .card-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px dashed rgba(255,255,255,0.12);
-    }
-
-    .card-meta a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    /* 3. ИНТЕРАКТИВТІ КАРТА БЛОГЫ */
+    /* 3. ИНТЕРАКТИВТІ КАРТА БЛОГЫ (ФИКС API KEY) */
     .map-container {
       background: var(--bg-card);
       border: 1px solid var(--border-gold);
@@ -366,6 +238,25 @@
       height: 480px;
       border-radius: 6px;
       margin-bottom: 20px;
+      background: #0D0D0D;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .dark-oil-tiles {
+      filter: invert(100%) hue-rotate(180deg) brightness(90%) contrast(115%) sepia(22%);
+    }
+
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+      background: #18120D !important;
+      color: #F4F1EA !important;
+      border: 1px solid #D4AF37;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8) !important;
+    }
+
+    .leaflet-control-layers {
+      background: #18120D !important;
+      color: #F4F1EA !important;
+      border: 1px solid rgba(212, 175, 55, 0.4) !important;
     }
 
     .map-controls {
@@ -392,7 +283,7 @@
       font-weight: 600;
     }
 
-    /* 4. ИНВЕСТИЦИЯЛЫҚ СХЕМА (ЛОНДОН - ҚАЗАҚСТАН) */
+    /* 4. ИНВЕСТИЦИЯЛЫҚ СХЕМА */
     .schema-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -514,21 +405,9 @@
       word-break: break-all;
     }
 
-    /* МОБИЛЬДІ АДАПТАЦИЯ */
     @media (max-width: 860px) {
-      .timeline-wrapper::before {
-        left: 20px;
-      }
-      .timeline-item, .timeline-item:nth-child(even) {
-        justify-content: flex-start;
-        padding-left: 50px;
-      }
-      .timeline-dot {
-        left: 20px;
-      }
-      .timeline-card {
-        width: 100%;
-        padding: 22px;
+      .knightlab-frame-wrapper iframe {
+        height: 560px;
       }
       .film-box {
         grid-template-columns: 1fr;
@@ -568,148 +447,23 @@
     <a href="#timeline" class="btn-gold">Тарихты бастау ↓</a>
   </header>
 
-  <!-- 1. ИНТЕРАКТИВТІ TIMELINE БӨЛІМІ -->
+  <!-- 1. ИНТЕРАКТИВТІ KNIGHT LAB TIMELINE БӨЛІМІ -->
   <section class="section-container" id="timeline">
     <div class="section-header">
-      <span>1988 — 2010 жж. хроникасы</span>
+      <span>1988 — 2010 жж. интерактивті хроникасы</span>
       <h2>Құрылыс алаңынан мұнай ұңғымасына дейін</h2>
     </div>
 
-    <div class="timeline-wrapper">
-
-      <!-- 1-бөлім -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="card-date">1988 ж. мамыр — 1992 ж.</span>
-          <h3>1. Мұнайға басталған жол</h3>
-          <img class="card-media" src="https://images.unsplash.com/photo-1541888946425-d09bb18086f6?auto=format&fit=crop&w=900&q=80" alt="Құрылыс және индустрия">
-          <div class="badge-block badge-history">
-            <span class="badge-label">📜 Тарихи дерек</span>
-            <p>Абай облысы Сергиополь ауылының тумасы, инженер-құрылысшы <strong>Медғат Кәрімұлы Құлжанов</strong> 1988 жылы мамырда 100 мың рубль несие алып, Қапшағай (қазіргі Қонаев) қаласында <strong>«Монолит»</strong> құрылыс кооперативін тіркеді. 1991 жылы Заречный кентіндегі үй құрылысы зауытын жекешелендіріп, 1992 жылы Қазақстан іскерлік айналымына «холдинг» ұғымын алғаш енгізген <strong>«Қуат»</strong> компаниясын құрды. КСРО ыдырағаннан кейінгі экономикалық өзгерістер кәсіпкерді жекеменшік мұнай өндірісіне бет бұруға жетеледі.</p>
-          </div>
-          <div class="badge-block badge-film">
-            <span class="badge-label">🎬 Фильмдегі оқиға</span>
-            <p>Бас кейіпкер <strong>Қасым Исағалиев</strong> (актер Қуандық Қыстықбай) шағын құрылыс кооперативін басқарып жүріп, 1990-жылдардың басындағы дағдарыс кезінде өзіне бейтаныс мұнай бизнесін бағындыруға бел буады.</p>
-          </div>
-          <div class="card-meta">Локация: Алматы, Қонаев (Қапшағай) • Дереккөз: <a href="https://el.kz/qara-altyn-murat-eszhan-filmine-arqau-bolgan-medgat-qulzhanov-kim_400053042/" target="_blank">El.kz</a></div>
-        </div>
-      </div>
-
-      <!-- 2-бөлім -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="card-date">1987 — 1992 жж. • Барлау жұмыстары кезеңі</span>
-          <h3>2. Қоныс пен Бектас: алғашқы үміт</h3>
-          <img class="card-media" src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=900&q=80" alt="Сырдария даласы">
-          <div class="badge-block badge-history">
-            <span class="badge-label">📜 Тарихи дерек</span>
-            <p>Геолог <strong>Райымбек Шақабаевтың</strong> ұсынысымен М. Құлжанов Қызылорда облысы Сырдария ауданындағы (Оңтүстік Торғай ойысымы) кеңестік бағалау бойынша «аз перспективалы» саналған екі кен орнын таңдайды: <strong>1987 жылы</strong> ашылған <strong>Бектас</strong> (45°32'46" с.е., 65°09'09" ш.б.) және <strong>1990 жылы</strong> ашылған <strong>Қоныс</strong> (46°01'27" с.е., 65°21'02" ш.б.) кен орындары.</p>
-          </div>
-          <div class="badge-block badge-film">
-            <span class="badge-label">🎬 Фильмдегі оқиға</span>
-            <p>Қасым геологиялық карталарды зерттеп, мемлекет пен ірі алпауыттар үшін тиімсіз саналған шалғай кеніштердің әлеуетіне сеніп, тәуекелге барады.</p>
-          </div>
-          <div class="card-meta">Локация: Қызылорда облысы, Сырдария ауданы • Дереккөз: <a href="https://www.gov.kz/org/kyzylorda-tabigat/press/article/details/185143" target="_blank">Gov.kz</a></div>
-        </div>
-      </div>
-
-      <!-- 3-бөлім -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="card-date">1992 — 1994 жж. • Рұқсат алу кезеңі</span>
-          <h3>3. Рұқсат үшін күрес</h3>
-          <img class="card-media" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80" alt="Құжаттар мен лицензия">
-          <div class="badge-block badge-history">
-            <span class="badge-label">📜 Тарихи дерек</span>
-            <p>Жекеменшік компанияның мұнай өндіруге рұқсат алуы үшін Қызылорда облысының сол кездегі әкімі <strong>Сейілбек Шаухамановтың</strong> қолдауы және <strong>1994 жылы Қазақстан Республикасы Үкіметімен</strong> жер қойнауын пайдалану туралы ресми келісімшарт жасасу қажет болды.</p>
-          </div>
-          <div class="badge-block badge-film">
-            <span class="badge-label">🎬 Фильмдегі оқиға</span>
-            <p>Режиссер Мұрат Есжан лицензия алудың қияметтік бюрократиясын Қасымның қыздарына «Мақта қыз бен мысық» ертегісін айтып отырған сәтімен параллель монтаждап, 90-жылдардағы коррупция мен әкімшілік тосқауылдарды ашық көрсетеді.</p>
-          </div>
-          <div class="card-meta">Локация: Алматы — Қызылорда • Дереккөз: <a href="https://www.nukte.io/kara-altyn-kazaktyn-biznes-turaly-uzdik-filmi/" target="_blank">nükte.</a></div>
-        </div>
-      </div>
-
-      <!-- 4-бөлім -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="card-date">1993 — 1994 жж. • Инвестиция іздеу кезеңі</span>
-          <h3>4. Лондонға жол: инвестор іздеу</h3>
-          <img class="card-media" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80" alt="Лондон панорамасы">
-          <div class="badge-block badge-history">
-            <span class="badge-label">📜 Тарихи дерек</span>
-            <p>Отандық қаржы тапшылығы жағдайында <strong>1993 жылы Лондонда</strong> британдық <strong>«Amlon» (Amlon Group)</strong> тобымен тең құқықты (паритеттік) шартқа қол қойылды: қаржыландыруды толықтай британдық тарап алды, ал М. Құлжановтың талабымен бас және қаржы директорлары болып Қазақстан азаматтары тағайындалды. <strong>1994 жылы қазанда</strong> Қызылордада <strong>«ҚуатАмлонМұнай» БК</strong> тіркелді. <em>(Нақты инвестиция сомасы ашық дереккөздерде расталмаған).</em></p>
-          </div>
-          <div class="badge-block badge-film">
-            <span class="badge-label">🎬 Фильмдегі оқиға</span>
-            <p>Қасым шақырылмаған жиналысқа кіріп, ағылшын тілін жетік білмесе де Лондонда шетелдік инвесторларды сендіріп, отандық мүддені қорғайтын мәміле жасайды.</p>
-          </div>
-          <div class="card-meta">Локация: Лондон (Ұлыбритания) — Қызылорда • Дереккөз: <a href="https://www.gov.kz/org/kyzylorda-tabigat/press/article/details/185143" target="_blank">Gov.kz</a></div>
-        </div>
-      </div>
-
-      <!-- 5-бөлім -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="card-date">1995 — 1996 жж. • Далалық дайындық кезеңі</span>
-          <h3>5. Тәуекел мен үміт</h3>
-          <img class="card-media" src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=900&q=80" alt="Мұнай бұрғылау">
-          <div class="badge-block badge-history">
-            <span class="badge-label">📜 Тарихи дерек</span>
-            <p>1995–1996 жылдар жолсыз, инфрақұрылымсыз далада ауыр дайындық пен бұрғылауға кетті. Қоныста мұнай қабатының биіктігі 30 м, ал Бектаста өнімді горизонт 732 м тереңдікте саз қабатының астында жатты. Геологиялық белгісіздік пен уақыт қысымына қарамастан, кәсіпкер экспедицияны тоқтатпады.</p>
-          </div>
-          <div class="badge-block badge-film">
-            <span class="badge-label">🎬 Фильмдегі оқиға</span>
-            <p>Бәрін жоғалту алдында тұрған сәтте де сынбайтын мінез бен Шәкәрімнің «Адамдық борышың — халқыңа еңбек қыл» деген адами кодексі кейіпкерге күш береді.</p>
-          </div>
-          <div class="card-meta">Локация: Сырдария ауданы, Қоныс–Бектас учаскесі • Дереккөз: <a href="https://qaraaltyn.kz/kz" target="_blank">qaraaltyn.kz</a></div>
-        </div>
-      </div>
-
-      <!-- 6-бөлім -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="card-date">1997 жыл (Қоныс) / 2002 жыл (Бектас)</span>
-          <h3>6. Қара алтын табылған сәт</h3>
-          <img class="card-media" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80" alt="Мұнай бұрқағы">
-          <div class="badge-block badge-history">
-            <span class="badge-label">📜 Тарихи дерек</span>
-            <p><strong>1997 жылы</strong> Қоныс кен орнында <strong>алғашқы мұнай бұрқағы</strong> атқылады (жеңіл, тығыздығы 0,83 г/см³, күкірті аз 0,16–0,19% мұнай, 7 мм штуцердегі тәуліктік өнімділігі 70,1–72,7 м³). Ал іргелес Бектас кен орны <strong>2002 жылдан</strong> бастап өнеркәсіптік игеруге қосылды.</p>
-          </div>
-          <div class="badge-block badge-film">
-            <span class="badge-label">🎬 Фильмдегі оқиға</span>
-            <p>Ұзақ күттірген бұрғылаудан кейін ұңғымадан қара алтын атқылап, кейіпкердің көпжылдық тәуекелі ақталатын кульминациялық сәт.</p>
-          </div>
-          <div class="card-meta">Локация: Қоныс және Бектас кен орындары • Дереккөз: <a href="https://kk.wikipedia.org/wiki/%D2%9A%D0%BE%D0%BD%D1%8B%D1%81_%D0%BC%D2%B1%D0%BD%D0%B0%D0%B9-%D0%B3%D0%B0%D0%B7_%D0%BA%D0%BE%D0%BD%D0%B4%D0%B5%D0%BD%D1%81%D0%B0%D1%82_%D0%BA%D0%B5%D0%BD_%D0%BE%D1%80%D0%BD%D1%8B" target="_blank">«Атамекен» энциклопедиясы</a></div>
-        </div>
-      </div>
-
-      <!-- 7-бөлім -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="card-date">2003 ж. желтоқсан — 2010 ж. 31 қазан</span>
-          <h3>7. Жеке кәсіптен үлкен өндіріске және руханиятқа дейін</h3>
-          <img class="card-media" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80" alt="Лондон концерт залы">
-          <div class="badge-block badge-history">
-            <span class="badge-label">📜 Тарихи дерек</span>
-            <p><strong>2003 жылы желтоқсанда</strong> «ҚуатАмлонМұнай» алғашқы <strong>1 миллион тонна</strong> мұнайын өндірді, жылына 400–450 мың тонна деңгейіне шығып, теміржол терминалы мен Құмкөл магистраліне <strong>70 км мұнай құбырын</strong> салды. 2009 жылы үлес сатылған соң, М. Құлжанов <strong>2010 жылы 31 қазанда</strong> Лондондағы <strong>Royal Festival Hall</strong> залында Карл Дженкинстің «Шәкәрім» симфониясының әлемдік премьерасын өткізді.</p>
-          </div>
-          <div class="badge-block badge-film">
-            <span class="badge-label">🎬 Фильмдегі оқиға</span>
-            <p>Финалда Лондон сахнасында Карл Дженкинстің «Шәкәрім» симфониясы ойналады — мұнай байлығы ұлттың рухани «қара алтынын» әлемге танытуға қызмет етеді.</p>
-          </div>
-          <div class="card-meta">Локация: Қызылорда — Лондон (Royal Festival Hall) • Дереккөз: <a href="https://www.azattyq.org/a/UK_world_premier_of_the_Shakarim_symphony_by_Jenkins/2210539.html" target="_blank">Азаттық радиосы</a></div>
-        </div>
-      </div>
-
+    <div class="knightlab-frame-wrapper">
+      <iframe 
+        src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2%3A2PACX-1vRC7H2sGNE7TDHOd-qm5DTwhDftYcijlAbswaz2hTMoluKbqGlUEAyr0r5-EKGqUuNPUGzgQS7TcH7c&font=Default&lang=kk&initial_zoom=2&width=100%25&height=650" 
+        width="100%" 
+        height="650" 
+        webkitallowfullscreen 
+        mozallowfullscreen 
+        allowfullscreen 
+        frameborder="0">
+      </iframe>
     </div>
   </section>
 
@@ -723,11 +477,11 @@
     <div class="map-container">
       <div id="qara-map"></div>
       <div class="map-controls">
-        <button class="map-btn active" onclick="flyToLoc(46.02417, 65.35056, 9)">🛢️ Қоныс кен орны (1990/1997)</button>
-        <button class="map-btn" onclick="flyToLoc(45.54611, 65.15258, 9)">🛢️ Бектас кен орны (1987/2002)</button>
-        <button class="map-btn" onclick="flyToLoc(44.8488, 65.4923, 12)">🏛️ Қызылорда («ҚуатАмлонМұнай» кеңсесі)</button>
-        <button class="map-btn" onclick="flyToLoc(43.8642, 77.0633, 10)">🏗️ Қонаев / Алматы («Монолит» пен «Қуат»)</button>
-        <button class="map-btn" onclick="flyToLoc(51.5058, -0.1167, 13)">🎼 Лондон (Royal Festival Hall)</button>
+        <button class="map-btn active" onclick="flyToLoc(46.02417, 65.35056, 9, this)">🛢️ Қоныс кен орны (1990/1997)</button>
+        <button class="map-btn" onclick="flyToLoc(45.54611, 65.15258, 9, this)">🛢️ Бектас кен орны (1987/2002)</button>
+        <button class="map-btn" onclick="flyToLoc(44.8488, 65.4923, 12, this)">🏛️ Қызылорда («ҚуатАмлонМұнай» кеңсесі)</button>
+        <button class="map-btn" onclick="flyToLoc(43.8642, 77.0633, 10, this)">🏗️ Қонаев / Алматы («Монолит» пен «Қуат»)</button>
+        <button class="map-btn" onclick="flyToLoc(51.5058, -0.1167, 13, this)">🎼 Лондон (Royal Festival Hall)</button>
       </div>
     </div>
   </section>
@@ -811,31 +565,35 @@
     </ul>
   </footer>
 
-  <!-- Leaflet JS (Интерактивті карта скрипті) -->
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    // 1. Скролл прогресс-бары және карточкалардың плавно ашылуы
+    // 1. Скролл прогресс-бары
     window.addEventListener('scroll', () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       document.getElementById('progressBar').style.width = ((winScroll / height) * 100) + '%';
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.18 });
-
-    document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
-
-    // 2. Қоныс пен Бектас кен орындарының интерактивті картасы
+    // 2. Қоныс пен Бектас кен орындарының интерактивті картасы (API KEY қажет етпейді)
     const map = L.map('qara-map').setView([45.8, 65.25], 7);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap & CartoDB | «Қара алтын» зерттеу жобасы'
+    const darkOsmLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      className: 'dark-oil-tiles',
+      attribution: '&copy; OpenStreetMap | «Қара алтын» зерттеу жобасы'
+    });
+
+    const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18,
+      attribution: '&copy; Esri, Maxar | «Қара алтын» зерттеу жобасы'
+    });
+
+    darkOsmLayer.addTo(map);
+
+    L.control.layers({
+      "🌑 Қараңғы карта (Dark)": darkOsmLayer,
+      "🛰️ Спутниктік көрініс (Esri)": satelliteLayer
     }).addTo(map);
 
     const locations = [
@@ -873,20 +631,23 @@
         color: "#FFFFFF",
         weight: 2,
         opacity: 1,
-        fillOpacity: 0.9
+        fillOpacity: 0.95
       }).addTo(map).bindPopup(`<strong>${loc.title}</strong><br>${loc.desc}`);
     });
 
-    // Географиялық байланыс сызығы
     L.polyline([
       [43.8642, 77.0633],
       [44.8488, 65.4923],
       [46.02417, 65.35056],
       [51.5058, -0.1167]
-    ], { color: '#D4AF37', weight: 2, dashArray: '6, 8', opacity: 0.7 }).addTo(map);
+    ], { color: '#D4AF37', weight: 2.5, dashArray: '6, 8', opacity: 0.85 }).addTo(map);
 
-    function flyToLoc(lat, lng, zoom) {
+    function flyToLoc(lat, lng, zoom, btnElement) {
       map.flyTo([lat, lng], zoom, { duration: 1.5 });
+      if (btnElement) {
+        document.querySelectorAll('.map-btn').forEach(btn => btn.classList.remove('active'));
+        btnElement.classList.add('active');
+      }
     }
   </script>
 </body>
