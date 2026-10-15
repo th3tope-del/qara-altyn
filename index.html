@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>«ҚАРА АЛТЫН» — Қазақстан мұнай кәсіпкерлігінің басталу тарихы</title>
+  <title>«ҚАРА АЛТЫН» — Қазақстан мұнай кәсіпкерлігінің басталу тарихы және зерттеу материалы</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,7 @@
     body {
       overflow-x: hidden;
       background: radial-gradient(circle at 50% 0%, #23170F 0%, #0A0908 70%);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     h1, h2, h3, .serif-title {
@@ -87,13 +87,13 @@
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 20px;
     }
 
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: color 0.3s;
@@ -114,8 +114,8 @@
       text-align: center;
       padding: 100px 20px 60px;
       background: 
-        linear-gradient(180deg, rgba(10,9,8,0.65) 0%, rgba(24,18,13,0.85) 75%, #0A0908 100%),
-        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        linear-gradient(180deg, rgba(10,9,8,0.65) 0%, rgba(24,18,13,0.88) 75%, #0A0908 100%),
+        url('https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
       border-bottom: 1px solid var(--border-gold);
     }
 
@@ -135,7 +135,7 @@
     .hero h1 {
       font-size: clamp(3.2rem, 8vw, 6.5rem);
       color: #FFFFFF;
-      text-shadow: 0 10px 35px rgba(0,0,0,0.8);
+      text-shadow: 0 10px 35px rgba(0,0,0,0.85);
       line-height: 1.05;
       margin-bottom: 20px;
       letter-spacing: 0.08em;
@@ -153,7 +153,7 @@
     .hero-desc {
       font-size: 1rem;
       color: var(--sand);
-      max-width: 660px;
+      max-width: 680px;
       margin-bottom: 42px;
       font-weight: 300;
     }
@@ -184,12 +184,12 @@
     .section-container {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 85px 20px;
+      padding: 90px 20px;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 50px;
     }
 
     .section-header span {
@@ -206,6 +206,40 @@
       color: #FFF;
     }
 
+    /* ЗЕРТТЕУ МАТЕРИАЛДАРЫ БЛОКТАРЫ (Кеңейтілген аналитика) */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+      margin-bottom: 70px;
+    }
+
+    .research-card {
+      background: linear-gradient(145deg, var(--bg-card) 0%, #130E0A 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .research-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .research-card h3 {
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+    }
+
+    .research-card p {
+      font-size: 0.95ln;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
     /* 2. KNIGHT LAB TIMELINE КОНТЕЙНЕРІ */
     .knightlab-frame-wrapper {
       background: var(--bg-card);
@@ -214,6 +248,7 @@
       padding: 12px;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 175, 55, 0.12);
       overflow: hidden;
+      margin-bottom: 80px;
     }
 
     .knightlab-frame-wrapper iframe {
@@ -224,13 +259,14 @@
       border-radius: 6px;
     }
 
-    /* 3. ИНТЕРАКТИВТІ КАРТА БЛОГЫ (ФИКС API KEY) */
+    /* 3. ИНТЕРАКТИВТІ КАРТА БЛОГЫ */
     .map-container {
       background: var(--bg-card);
       border: 1px solid var(--border-gold);
       border-radius: 10px;
       padding: 24px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+      margin-bottom: 80px;
     }
 
     #qara-map {
@@ -329,6 +365,7 @@
       border-radius: 10px;
       padding: 40px;
       align-items: center;
+      margin-bottom: 80px;
     }
 
     .film-poster {
@@ -336,6 +373,8 @@
       border-radius: 6px;
       border: 1px solid var(--border-gold);
       box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
     }
 
     .film-specs {
@@ -358,13 +397,14 @@
       color: #FFF;
     }
 
-    /* 6. ҚОРЫТЫНДЫ СҰРАҚ МЕН ДЕРЕККӨЗДЕР */
+    /* 6. ҚОРЫТЫНДЫ МАНИФЕСТ БӨЛІМІ */
     .final-manifesto {
       text-align: center;
       padding: 90px 20px;
       background: radial-gradient(circle at center, #2B1D10 0%, #0A0908 75%);
       border-top: 1px solid var(--border-gold);
       border-bottom: 1px solid var(--border-gold);
+      margin-bottom: 60px;
     }
 
     .final-manifesto blockquote {
@@ -428,30 +468,56 @@
   <nav class="top-nav">
     <a href="#" class="brand">ҚАРА АЛТЫН</a>
     <div class="nav-links">
+      <a href="#research">Зерттеу</a>
       <a href="#timeline">Хронология</a>
-      <a href="#map-section">Кен орындары картасы</a>
-      <a href="#investment">Лондон байланысы</a>
-      <a href="#film-info">Фильм туралы</a>
+      <a href="#map-section">Карта</a>
+      <a href="#investment">Инвестиция</a>
+      <a href="#film-info">Фильм</a>
       <a href="#sources">Дереккөздер</a>
     </div>
   </nav>
 
   <!-- БАСТЫ ЭКРАН (HERO) -->
   <header class="hero">
-    <div class="hero-eyebrow">Деректі-тарихи мультимедиялық жоба • 2026</div>
+    <div class="hero-eyebrow">Деректі-тарихи мультимедиялық зерттеу жобасы • 2026</div>
     <h1>«ҚАРА АЛТЫН»</h1>
     <p class="hero-subtitle">«Бір мұнайдың тарихы. Мың тәуекел. Бір үлкен мақсат.»</p>
     <p class="hero-desc">
-      Медғат Құлжановтың мұнай іздеу жолы және Қазақстандағы жекеменшік мұнай кәсібінің қалыптасуы.
+      Медғат Құлжановтың өмір жолы, құрылыс трестерінен мұнай өндірісіне өткен кезеңі, Қоныс пен Бектас кен орындарын игеру тарихы және Қазақстандағы алғашқы жекеменшік мұнай кәсібінің қалыптасуы.
     </p>
-    <a href="#timeline" class="btn-gold">Тарихты бастау ↓</a>
+    <a href="#research" class="btn-gold">Зерттеу материалдары ↓</a>
   </header>
 
+  <!-- ЗЕРТТЕУ АНАЛИТИКАСЫ БЛОГЫ (МЕДҒАТ ҚҰЛЖАНОВ ЖӘНЕ ЗАВОДТАР КОНТЕКСТІ) -->
+  <section class="section-container" id="research">
+    <div class="section-header">
+      <span>Кәсіби журналистік талдау</span>
+      <h2>Медғат Құлжанов және Қазақстанның мұнай-индустриялық өткелі</h2>
+    </div>
+
+    <div class="research-grid">
+      <div class="research-card">
+        <h3>👷 Инженерлік мектеп және «Монолит»</h3>
+        <p>Медғат Кәрімұлы Құлжанов (1947 ж. туған, Абай облысы, Аягөз/Сергиополь) — ҚазПТИ түлегі, құрылыс инженері. 1971–1987 жылдары Алматы, Лепсі, Екібастұз («Экибастузэнергострой») және Теңіз кен орны маңындағы «Монолитстрой» басқармасын басқарды. 1988 жылы мамырда Қонаевта (Қапшағай) Қазақстандағы алғашқы жеке кооперативтердің бірі — <strong>«Монолит»</strong> құрылыс кооперативін құрып, монолитті үй құрылысы технологиясын енгізді.</p>
+      </div>
+
+      <div class="research-card">
+        <h3>🛢️ Қоныс пен Бектас: Заводтар және Инфрақұрылым</h3>
+        <p>1990-жылдардың басында геолог Райымбек Шақабаевтың ұсынысымен Сырдария даласындағы «аз перспективалы» саналған <strong>Бектас</strong> (1987 ж. ашылған) пен <strong>Қоныс</strong> (1990 ж. ашылған) кен орындарына қол жеткізді. 1994 жылы британдық Amlon Group-пен құрылған <strong>«ҚуатАмлонМұнай» БК</strong> далалық жағдайда 150-ден астам ұңғыма бұрғылап, Құмкөл магистраліне қосылатын **70 шақырымдық мұнай құбыры** мен жеке теміржол терминалын салып шықты.</p>
+      </div>
+
+      <div class="research-card">
+        <h3>🎼 Мұнай капиталынан — Рухани Мұраға</h3>
+        <p>2003 жылы желтоқсанда 1 миллион тонна мұнай өндіру межесіне жеткен кәсіпорын 2009 жылы сатылған соң, М. Құлжанов өз капиталын Абай мен Шәкәрім мұрасын әлемдік деңгейде танытуға бағыттады. Бұл қызмет 2010 жылы 31 қазанда Лондондағы әйгілі **Royal Festival Hall** залында британ композиторы Карл Дженкинстің **«Шәкәрім» симфониясының** әлемдік премьерасымен триумфқа ұласты.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- 1. ИНТЕРАКТИВТІ KNIGHT LAB TIMELINE БӨЛІМІ -->
-  <section class="section-container" id="timeline">
+  <section class="section-container" id="timeline" style="padding-top: 0;">
     <div class="section-header">
       <span>1988 — 2010 жж. интерактивті хроникасы</span>
-      <h2>Құрылыс алаңынан мұнай ұңғымасына дейін</h2>
+      <h2>«Қара алтын» сюжетінің нақты хронологиялық тізбегі</h2>
     </div>
 
     <div class="knightlab-frame-wrapper">
@@ -507,7 +573,7 @@
       <div class="schema-step">
         <div class="step-num">03</div>
         <h4>Өндірістік серпіліс (1997–2003)</h4>
-        <p>1997 ж. алғашқы мұнай бұрқағы алынып, 2003 ж. 1 млн тонна межесі бағындырылады. Құмкөлге 70 км мұнай құбыры тартылады.</p>
+        <p>1997 ж. алғашқы мұнай бұрқағы алынып, 2003 ж. 1 млн тонна межесі бағындырылады. Құмкөлге 70 км мұнай құбыры мен терминал салынады.</p>
       </div>
       <div class="schema-step">
         <div class="step-num">04</div>
@@ -521,7 +587,7 @@
   <section class="section-container" id="film-info">
     <div class="film-box">
       <div>
-        <img class="film-poster" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Қара алтын фильмі">
+        <img class="film-poster" src="images.jpg" alt="Қара алтын фильмі постері">
       </div>
       <div>
         <span style="color:var(--gold); text-transform:uppercase; letter-spacing:2px; font-size:0.8rem;">Кинопаспорт • Ресми EPK деректері</span>
@@ -575,7 +641,7 @@
       document.getElementById('progressBar').style.width = ((winScroll / height) * 100) + '%';
     });
 
-    // 2. Қоныс пен Бектас кен орындарының интерактивті картасы (API KEY қажет етпейді)
+    // 2. Қоныс пен Бектас кен орындарының интерактивті картасы
     const map = L.map('qara-map').setView([45.8, 65.25], 7);
 
     const darkOsmLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
